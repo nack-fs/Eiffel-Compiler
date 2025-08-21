@@ -1,0 +1,112 @@
+CATEGORIES
+expression;
+stmt;
+dataType;
+
+NODES
+
+program -> classDef global? create feature* runInvocation;
+
+classDef -> name:string;
+
+runInvocation -> procedure;
+
+readStmt:stmt -> expression*;
+printStmt:stmt -> expression* format:string;
+assignStmt:stmt -> assignment;
+ifStmt:stmt -> condition:expression ifStmts:stmt* elseStmts:stmt*;
+fromStmt:stmt -> declarations:assignment* condition:expression stmts:stmt*;
+procedureStmt:stmt -> procedure;
+returnStmt:stmt -> returnInvoc;
+
+assignment -> left:expression right:expression;
+
+intLiteral:expression -> value:string;
+realLiteral:expression -> value:string;
+charLiteral:expression -> value:string;
+variable:expression -> name:string;
+procedureExpression:expression -> procedure;
+arrayExpression:expression -> array:expression index:expression;
+structExpression:expression -> struct:expression field:string;
+minusExpression:expression -> expression;
+notExpression:expression -> expression;
+cast:expression -> dataType expression;
+arithmeticExpression:expression -> left:expression operator:string right:expression;
+comparisonExpression:expression -> left:expression operator:string right:expression;
+logicExpression:expression -> left:expression operator:string right:expression;
+
+procedure -> name:string expression*;
+
+integerType:dataType -> ;
+doubleType:dataType -> ;
+characterType:dataType -> ;
+structType:dataType -> name:string;
+arrayType:dataType -> size:string dataType;
+voidType:dataType -> ;
+errorType:dataType -> ;
+
+create -> idents:string* ;
+feature -> name:string params:varDefinition* dataType? localBlock? doBlock;
+returnInvoc -> expression?;
+localBlock -> varDefinition*;
+doBlock -> stmt*;
+
+global -> globalTypes? varsTypes?;
+globalTypes -> deftuple*;
+varsTypes -> varDefinition*;
+
+deftuple -> name:string field*;
+field -> name:string type:dataType;
+
+varDefinition -> name:string type:dataType;
+
+// ---------------------------------
+ATTRIBUTE GRAMMAR Identification
+
+variable -> definition:varDefinition ;
+structType -> deftuple;
+procedure -> invocation:feature;
+field -> deftuple;
+varDefinition -> scope:string;
+
+// ---------------------------------
+ATTRIBUTE GRAMMAR TypeChecking
+
+expression -> type:dataType;
+expression -> lvalue:boolean;
+stmt -> feature;
+stmt -> returnable:boolean;
+doBlock -> returnable:boolean;
+feature -> returntype:dataType;
+feature -> constructor:boolean;
+
+// ---------------------------------
+ATTRIBUTE GRAMMAR MemoryAllocation
+
+varDefinition -> [inh] address:int;
+field -> offset:int;
+
+// ---------------------------------
+CODE SPECIFICATION Mapl
+
+run[program]
+
+metadata[program]
+metadata[global]
+metadata[globalTypes]
+metadata[varsTypes]
+metadata[deftuple]
+metadata[field]
+metadata[varDefinition]
+
+execute[runInvocation]
+execute[assignment]
+execute[feature]
+execute[returnInvoc]
+execute[doBlock]
+execute[stmt]
+
+value[expression]
+
+address[expression]
+
