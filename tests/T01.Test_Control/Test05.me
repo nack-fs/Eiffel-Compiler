@@ -1,0 +1,21 @@
+class Test_05_Error;
+  global
+	vars
+		i : INTEGER;
+	
+	create
+		hacer, deshacer;	/* Error, separador coma.
+		//*Se podrían declarar varios constructores, pero
+		sólo hemos puesto uno*//
+		
+	feature hacer is
+		do
+			print 'H';
+			print '\n';
+	end /*hacer
+end /* Test_05_Error
+
+run hacer();
+
+/* line 7:7 mismatched input ',' expecting ';'
+/* Compilación finalizada debido a errores sintácticos.

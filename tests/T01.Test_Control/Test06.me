@@ -1,0 +1,29 @@
+class Test_06_Error;
+   
+  global
+	vars
+		i : INTEGER := 5;  /* Error: no se puede inicializar aquí
+	
+	create
+		hacer;
+		deshacer;
+		//*Se podrían declarar varios constructores, pero
+		sólo hemos puesto uno*//
+		
+	feature hacer is
+		do
+			print 'H';
+			print '\n';
+	end /*hacer
+
+	feature deshacer is
+        do
+            print 'H';
+			print '\n';
+	end /*hacer
+end /* Test_06_Error
+
+run deshacer();
+
+/* line 5:14 mismatched input ':=' expecting ';'
+/* Compilación finalizada debido a errores sintácticos.

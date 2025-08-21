@@ -1,0 +1,21 @@
+class
+	T_ERRTCH04;
+	
+	create
+		inicioConstructor;
+		
+	feature inicioNo is
+		do
+		end
+
+	feature inicioConstructor (a : INTEGER) is
+		do
+		end
+
+end	/* T_ERRTCH04
+
+run inicioConstructor(7.2);
+
+//* ERRORES 
+Error en Type Checking: [11:29] Se esperaba un tipo 'INTEGER' para el argumento 'a' en la invocación del procedimiento 'feature inicioConstructor', no un 'DOUBLE'.
+*//

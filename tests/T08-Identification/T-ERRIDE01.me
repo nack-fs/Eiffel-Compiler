@@ -1,0 +1,38 @@
+//*
+Este ejemplo tiene varios errores semánticos que el compilador debe detectar en la
+fase de identificación y otros que no deben ser detectados aún.
+*//
+
+class
+	T_ERRIDE01; /* funciones_error
+	
+	create
+		arranque;
+		
+	feature
+		dobleSuma is
+		do
+		end
+		
+	feature
+		prueba is
+		do
+		end
+
+	feature
+		dobleSuma is /* Función repetida 
+		do
+		end
+		
+	feature
+		arranque is
+		do
+			print f();	/* Función f no definida 
+			g(2);		/* Procedimiento g no definido 
+			
+			dobleSuma();
+			dobleSuma(5.6);	/* No hay error en esta fase aunque no coincidan parámetros 
+		end
+end /* T_ERRIDE01
+	
+run arranque();

@@ -1,0 +1,59 @@
+//*
+Este ejemplo tiene varios errores sem�nticos que el compilador debe detectar en la
+fase de identificaci�n y otros que no deben ser detectados a�n.
+*//
+
+class
+	T_ERRIDE03; /* variables_error;
+
+	global
+		vars
+			a : INTEGER;
+			b : CHARACTER;
+			d, e : DOUBLE;
+			a : [20] INTEGER;	/* Variable global repetida 
+
+	create
+		dobleSuma;
+
+	feature
+		dobleSuma (z : INTEGER, b:INTEGER, z:DOUBLE) : INTEGER is /* Par�metro 'z' repetido ('b' no colisiona con global)
+		local
+			local1 : INTEGER;
+			local2 : INTEGER;		
+			local1 : INTEGER;				/* Local repetida (con otra local) 
+			b : DOUBLE;						/* Local repetida (con un par�metro) 
+			d : INTEGER;					/* Esta no deb�a dar error, ya que la otra 'd' es global 
+		do
+			if b < 5 then
+				print c1;					/* variable no definida 
+			else
+				print c2 + b;				/* variable no definida 
+				z := b * c3;					/* variable no definida
+			end
+			from
+				c4 := 1;					/* variable no definida 
+			until c5 = 8 loop				/* variable no definida 
+				c6 := c7 + prueba (c8);		/* (1) variable no definida y (2) 'prueba' a�n no ha sido definida
+			end
+			read c9;						/* variable no definida
+			print a;	
+			print d;
+			print b;	
+			print c10;						/* variable no definida 
+			print local2;	
+			prueba (c11);					/* (1) variable no definida y (2) 'prueba' a�n no ha sido definida
+			return c12;						/* variable no definida
+		end
+
+	feature
+		prueba is
+		do
+			print z;						/* Error: es par�metro de la funci�n anterior
+			print local2;					/* Error: es local de la funci�n anterior
+			aa [2][a14][4] := a;			/* variable 'aa' y variable 'a14' no definidas
+		end
+end /* T_ERRIDE03
+
+run dobleSuma(5.6);	/* No es error en esta fase aunque no coincidan par�metros 
+

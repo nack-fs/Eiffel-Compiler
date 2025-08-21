@@ -1,0 +1,25 @@
+class T_ERRSIN05;
+	create
+		hacer; 
+		//*Se podrían declarar varios constructores, pero
+		sólo hemos puesto uno*//
+	feature hacer is
+		do
+			print ('H'; /*Falta paréntesis
+			print '\n';
+	end /*hacer
+
+	feature hacer1 (i : INTEGER) : is /* No se especifica el tipo de retorno
+        do
+            print 'H';
+			print '\n';
+    end /*hacer1
+
+	feature hacer2 (i, j) : DOUBLE is /* No se especifican los tipos de los parámetros
+        do
+            print ('H');
+			print '\n';
+    end /*hacer2
+end /* T_ERRSIN05
+
+run hacer();

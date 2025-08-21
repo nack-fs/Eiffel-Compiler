@@ -1,0 +1,294 @@
+#source	"TestGenCode.me"
+#type	Persona:{	
+		edad:int	' offset 0
+		meses:12 * int	' offset 2
+		a:float	' offset 26
+	}
+#type	Prueba:{	
+		campo1:int	' offset 0
+		campo2:int	' offset 2
+	}
+#global	b:float	' offset 0
+#global	a:char	' offset 4
+#global	c:2 * Persona	' offset 5
+#global	d:int	' offset 65
+	'	Inicio del programa
+
+#line	88
+	pushi	1
+	pushf	2.5
+	pushb	97
+	call	f
+halt
+	'	Definiciones de funciones
+
+factorial:
+
+#line	39
+#func	factorial
+#param	i:int	' BP+4
+#local	fac:int	' BP-2
+#ret	int
+	enter	2
+	'	inicio from_L0000
+	push	bp
+	pushi	-2
+	addi
+	push	bp
+	pushi	4
+	addi
+	load
+	store
+FromCond_L0000:
+
+#line	45
+	push	bp
+	pushi	4
+	addi
+	load
+	pushi	1
+	eqi
+	jnz	FromEnd_L0000
+
+#line	46
+	push	bp
+	pushi	4
+	addi
+	push	bp
+	pushi	4
+	addi
+	load
+	pushi	1
+	subi
+	store
+	push	bp
+	pushi	-2
+	addi
+	push	bp
+	pushi	-2
+	addi
+	load
+	push	bp
+	pushi	4
+	addi
+	load
+	muli
+	store
+	jmp	FromCond_L0000
+FromEnd_L0000:
+	push	bp
+	pushi	-2
+	addi
+	load
+	ret	2,2,2
+
+f:
+
+#line	53
+#func	f
+#param	a:int	' BP+9
+#param	b:float	' BP+5
+#param	h:char	' BP+4
+#local	c:char	' BP-1
+#local	d:int	' BP-3
+#local	e:2 * Persona	' BP-63
+#local	f:float	' BP-67
+#ret	void
+	enter	67
+
+#line	60
+	push	bp
+	pushi	9
+	addi
+	push	bp
+	pushi	4
+	addi
+	loadb
+	b2i
+	push	bp
+	pushi	5
+	addi
+	loadf
+	f2i
+	addi
+	store
+
+#line	61
+	push	bp
+	pushi	9
+	addi
+	load
+	pushi	0
+	gti
+	jz	else_L0001
+
+#line	62
+	push	bp
+	pushi	9
+	addi
+	push	bp
+	pushi	9
+	addi
+	load
+	pushi	1
+	addi
+	store
+	jmp	endif_L0002
+else_L0001:
+
+#line	64
+	push	bp
+	pushi	9
+	addi
+	push	bp
+	pushi	9
+	addi
+	load
+	pushi	1
+	subi
+	store
+endif_L0002:
+
+#line	66
+	push	bp
+	pushi	4
+	addi
+	loadb
+	b2i
+	pushi	72
+	eqi
+	jz	else_L0003
+
+#line	67
+	push	bp
+	pushi	9
+	addi
+	push	bp
+	pushi	9
+	addi
+	load
+	pushi	1
+	addi
+	store
+	jmp	endif_L0004
+else_L0003:
+
+#line	69
+	push	bp
+	pushi	9
+	addi
+	push	bp
+	pushi	9
+	addi
+	load
+	pushi	1
+	subi
+	store
+endif_L0004:
+	'	inicio from_L0005
+	push	bp
+	pushi	-3
+	addi
+	push	bp
+	pushi	9
+	addi
+	load
+	store
+FromCond_L0005:
+
+#line	73
+	push	bp
+	pushi	-3
+	addi
+	load
+	pushi	80
+	lti
+	jnz	FromEnd_L0005
+
+#line	74
+	push	bp
+	pushi	9
+	addi
+	push	bp
+	pushi	9
+	addi
+	load
+	pushi	2
+	addi
+	store
+
+#line	75
+	push	bp
+	pushi	-63
+	addi
+	pushi	1
+	pushi	30
+	muli
+	addi
+	pushi	0
+	addi
+	push	bp
+	pushi	9
+	addi
+	load
+	store
+
+#line	76
+	push	bp
+	pushi	-63
+	addi
+	pushi	1
+	pushi	30
+	muli
+	addi
+	pushi	2
+	addi
+	pushi	2
+	pushi	2
+	muli
+	addi
+	pushi	5
+	store
+
+#line	77
+	push	bp
+	pushi	-3
+	addi
+	push	bp
+	pushi	-3
+	addi
+	load
+	pushi	1
+	subi
+	store
+	jmp	FromCond_L0005
+FromEnd_L0005:
+	push	bp
+	pushi	9
+	addi
+	load
+	outi
+	pushb	10
+	outb
+
+#line	81
+	push	bp
+	pushi	9
+	addi
+	pushi	3
+	call	factorial
+	store
+
+#line	82
+	pushi	3
+	call	factorial
+	pop
+	push	bp
+	pushi	9
+	addi
+	load
+	outi
+	pushb	10
+	outb
+	ret	0,67,7
+	'	Fin del programa MAPL

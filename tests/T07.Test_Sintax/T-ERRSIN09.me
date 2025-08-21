@@ -1,0 +1,42 @@
+class T_ERRSIN09;
+	
+	global
+		types
+			deftuple tuple1 as /*estructura
+				a: INTEGER;
+				c: CHARACTER;
+				d: DOUBLE;
+			end
+		vars
+			i : INTEGER; /*esto estaría bien
+			j : INTEGER;
+			ai : [2] INTEGER; /*array de una dimensión
+			bi : [2, 2] INTEGER; /*Error, no se declara así el array de dos dimensiones
+
+	create
+		inicio; 
+		otroInicio; /*Se podrían definir tantos constructores como se desee
+	
+	feature otroInicio : INTEGER is
+		local
+			deftuple tuple2 as /*No se puede declarar aquí ///////**************
+				aa: INTEGER;
+				tt: tuple1;
+			end
+		t : tuple1; /*estructura
+
+		do
+			read (i);
+			read j;
+			j := i * 7;
+			if (i < 1 and j > 7) or not (i < j) then
+				i := 1;
+				j := 2;
+			end
+			return i - j;
+	end /*otroInicio
+	
+end /* T_ERRSIN09
+
+run inicio(2, 3, 4+5); /* como solo puede estar activo un inicio sólo llamaría a éste
+	/* EJEMPLO.otroInicio(6); /* inicio alternativo: habría que comentar la linea anterior y descomentar esta

@@ -1,0 +1,97 @@
+//*
+Este ejemplo contiene varios errores, peude que no todos se detecten.
+*//
+
+class Test_09_Error;
+	
+	global
+		types
+			deftuple tuple1 as /*estructura
+				a: INTEGER;
+				c: CHARACTER;
+				d: DOUBLE;
+			end
+			deftuple tuple2 as /*estructura
+				aa: INTEGER;
+				tt: tuple1;
+			end
+		vars
+			i : INTEGER; /*esto estaría bien
+			k : INTEGER := 2; /*ERROR. Esto estaría mal, no se puede inicializar
+			j : INTEGER;
+			ai : [2] INTEGER; /*array de una dimensión
+			bi : [2][2] INTEGER; /*array de dos dimensiones
+			t : tuple1; /*estructura
+
+	create
+		inicio; 
+		otroInicio; /*Se podrían definir tantos constructores como se desee
+		masinicio;	/* Es un error, pero no se detectará aquí...
+		inicio;	/* Es un error, está repetido, pero nos e detectara aquí
+	
+	feature factorial (i : INTEGER) : INTEGER is /* declaración con valor de retorno INTEGER y parámetro INTEGER
+		local
+			j : INTEGER;
+		do
+			from
+				j:= -1;
+			end /* ERROR, from sin until ni loop
+			
+			until i = 0 /* ERROR, until sin loop
+				j := -(j + i) * i;
+				i := i - -1;  /* Vale así o hau que poner  i - (-1);
+			end
+			return j;
+	end /* factorial
+	
+	feature inicio (ii : INTEGER, ij : INTEGER, ik : INTEGER) is
+		local
+			i : INTEGER;
+			ai : [5] INTEGER;
+			t2 : [4] tuple2; /*array de estructura	
+		do
+			read(t.a);
+			if (t.a < 5) and not (t.a = 0) then
+				t.a := t.a * 2;
+			else if t.a = 0 /* ERROR, then if sin then
+				t.a := 100;
+				else
+					t.a := t.a + to<INTEGER>(10.0);
+					t.a := -t.a;
+				end
+			read t2[0].tt.d; /* lectura de elemento complejo. poner ( y ) si hace falta
+			t2[0].tt.a := 1 + to<INTEGER>(t2[0].tt.d); /* Acceso a array de estructuras
+			end
+			
+			from
+				i:= 0;
+			until i = 5 loop
+				ai[i] := t.a * i;
+				i := i + factorial(4);
+			end
+	end /* inicio
+	
+	feature otroInicio : INTEGER is
+		/* local
+		/* local está vacío
+		do
+			read (i);
+			read j;
+			j := i * 7;
+			if (i < 1 and j > 7) or not (i < j) then
+				i := 1;
+				j := 2;
+			end
+			return i - j;
+	end /*otroInicio
+	
+end /*Test_09_Error
+
+run inicio(2, 3, 4+5); /* como solo puede estar activo un inicio sólo llamaría a éste
+	/* EJEMPLO.otroInicio(6); /* inicio alternativo: habría que comentar la linea anterior y descomentar esta
+	
+/* line 20:15 mismatched input ':=' expecting ';'
+/* line 38:3 extraneous input 'end' expecting 'until'
+/* line 41:4 missing 'loop' at 'j'
+/* line 57:4 missing 'then' at 't'
+/* Compilación finalizada debido a errores sintácticos.

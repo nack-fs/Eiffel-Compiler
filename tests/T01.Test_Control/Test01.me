@@ -1,0 +1,19 @@
+class Test_01_Error_HOLA_MUNDO;
+	create
+		main; 
+		//*Se podrían declarar varios constructores, pero
+		sólo hemos puesto uno*//
+	feature main is
+		do
+			println "Hola Mundo!"; /* Error, no se admiten cadenas
+			print '\n';
+	end /*main
+end /* Test_01_Error_HOLA_MUNDO
+
+run main();
+
+/* line 8:11 token recognition error at: '"'
+/* line 8:22 token recognition error at: '!'
+/* line 8:23 token recognition error at: '"'
+/* line 8:17 extraneous input 'Mundo' expecting ';'
+/* Compilación finalizada debido a errores sintácticos.

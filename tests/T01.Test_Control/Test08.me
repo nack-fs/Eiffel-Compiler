@@ -1,0 +1,20 @@
+class Test_08_Error;
+   
+	global
+		vars
+			i : INTEGER;
+		
+	create
+		hacer (i: INTEGER);	/* Error, no se declaran los parámetros aquí.
+		
+	feature hacer (i : INTEGER) : DOUBLE is
+        do
+            print 'H';
+			print '\n';
+	end /*hacer
+end /* Test_08_Error
+
+run hacer(1); /* Aunque tenga valor de retorno debe generar llamada a procedimiento
+
+/* line 8:8 mismatched input '(' expecting ';'
+/* Compilación finalizada debido a errores sintácticos.

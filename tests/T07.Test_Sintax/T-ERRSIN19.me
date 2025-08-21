@@ -1,0 +1,38 @@
+class T_ERRSIN19;
+	
+	global 
+		types
+			deftuple tuple1 as 
+				a: INTEGER;
+				c: CHARACTER;
+				d: DOUBLE;
+			end
+			deftuple vacia as
+			end
+		/* vars /* Declaración de variables sin vars y dentro de types
+			i : INTEGER; 
+			j : INTEGER;
+			t : tuple1;
+
+	create
+		inicio; 
+		otroInicio;
+
+
+	feature factorial (i : INTEGER) : INTEGER is 
+		local
+			j : INTEGER;
+
+		do
+			from
+				j:= -1;
+			until i = 0 loop
+				j := -(j + i) * i;
+				i := i - -1;
+			end
+			return j;
+	end /* factorial
+
+end /*T_ERRSIN19
+
+run inicio(2, 3, 4+5);

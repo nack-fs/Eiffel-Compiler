@@ -1,0 +1,21 @@
+class Test_04_Error;
+	create
+		hacer; 
+		//*Se podrían declarar varios constructores, pero
+		sólo hemos puesto uno*//
+		
+	global	/* ERROR: Global no está en la posición adecuada
+		vars
+			i : INTEGER;
+		
+	featurehacer is
+		do
+			print 'H';
+			print '\n';
+	end /*hacer
+end /* Test_04_Error
+
+run hacer();
+
+/* line 7:1 mismatched input 'global' expecting {'end', 'feature', IDENT}
+/* Compilación finalizada debido a errores sintácticos.

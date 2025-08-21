@@ -1,0 +1,35 @@
+class T_ERRSIN12;
+	
+	global
+		types
+			deftuple tuple1 is /*Error es 'as', no 'is'
+				a: INTEGER;
+				c: CHARACTER;
+				d: DOUBLE;
+			end
+		vars
+			i : INTEGER; 
+			j : INTEGER;
+			t : tuple1;
+
+	create
+		inicio; 
+		otroInicio;
+
+
+	feature factorial (i : INTEGER) : INTEGER is /* declaración con valor de retorno INTEGER y parámetro INTEGER
+		local
+			j : INTEGER;
+		do
+			from
+				j:= -1;
+			until i = 0 do /* Error debe ser 'loop'
+				j := -(j + i) * i;
+				i := i - -1;
+			end
+			return j;
+	end /* factorial
+
+end /*T_ERRSIN12
+
+run inicio(2, 3, 4+5);

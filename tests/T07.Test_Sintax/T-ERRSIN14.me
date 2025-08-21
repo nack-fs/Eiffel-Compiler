@@ -1,0 +1,43 @@
+class T_ERRSIN14;
+	
+	global
+		types
+			deftuple tuple1 as 
+				a: INTEGER;
+				c: CHARACTER;
+				d: DOUBLE;
+			end
+			deftuple vacia as
+			end
+		vars
+			i : INTEGER; 
+			j : INTEGER;
+			t : tuple1;
+
+	create
+		inicio; 
+		otroInicio;
+
+
+	feature factorial (i : INTEGER) : INTEGER is 
+		local
+			j : INTEGER;
+			deftuple t2 as	/* Error, no se pueden declarar tuplas en el ámbito local
+				i: INTEGER;
+				d: DOUBLE;
+			end
+		do
+			from
+				j:= -1;
+			until
+				i = 0;
+			loop
+				j := -(j + i) * i;
+				i := i - -1;
+			end
+			return j;
+	end /* factorial
+
+end /*T_ERRSIN14
+
+run inicio(2, 3, 4+5);

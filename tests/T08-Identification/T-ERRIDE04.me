@@ -1,0 +1,28 @@
+//*
+Este ejemplo tiene varios errores semánticos que el compilador debe detectar en la
+fase de identificación y otros que no deben ser detectados aún.
+*//
+
+class
+	T_ERRIDE04; /* inicializadores_1_error;
+	
+	create
+		inicio;
+		otro_inicio;
+		otro_mas;	/* Se ha declarado un constructor pero no se ha definido en una feature
+		mas_y_mas;	/* Se ha declarado un constructor pero no se ha definido en una feature
+		inicio;		/* Se ha vuel a declarar inicio;
+
+	feature
+		inicio is
+		do
+		end
+
+	feature
+		otro_inicio is
+		do
+		end
+
+end /* T_ERRIDE04
+
+run inicio();

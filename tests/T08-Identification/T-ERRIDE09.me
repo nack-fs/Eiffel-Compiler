@@ -1,0 +1,34 @@
+//*
+Este ejemplo tiene varios errores sem�nticos que el compilador debe detectar en la
+fase de identificaci�n y otros que no deben ser detectados a�n.
+*//
+
+class
+	T_ERRIDE02; /* estructuras_error;
+
+	global
+		types
+			deftuple Persona as
+				edad : INTEGER;
+				meses :[12] INTEGER;
+			end
+
+			deftuple Punto as
+				x : INTEGER;
+			end
+		vars
+			centro : Punto;
+
+	create
+		arranque;
+		
+	feature
+		arranque is
+		do
+			print centro.x;
+			print centro.y; /* Error el campo no está en la struct 
+		end
+end /* T_ERRIDE02
+
+run arranque();
+

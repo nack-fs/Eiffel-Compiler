@@ -1,0 +1,476 @@
+#source	"T002-TABMUL2.me"
+#type	tabla:{	
+		num:int	' offset 0
+		sol:int	' offset 2
+	}
+#global	tablaMul:12 * tabla	' offset 0
+	'	Inicio del programa
+
+#line	95
+	call	inicio
+halt
+	'	Definiciones de funciones
+
+presentacion:
+
+#line	18
+#func	presentacion
+#ret	void
+
+#line	18
+	pushb	84
+	outb
+	pushb	65
+	outb
+	pushb	66
+	outb
+	pushb	76
+	outb
+	pushb	65
+	outb
+	pushb	32
+	outb
+	pushb	68
+	outb
+	pushb	69
+	outb
+	pushb	32
+	outb
+	pushb	77
+	outb
+	pushb	85
+	outb
+	pushb	76
+	outb
+	pushb	84
+	outb
+	pushb	73
+	outb
+	pushb	80
+	outb
+	pushb	76
+	outb
+	pushb	73
+	outb
+	pushb	67
+	outb
+	pushb	65
+	outb
+	pushb	82
+	outb
+	pushb	32
+	outb
+	pushb	86
+	outb
+	pushb	46
+	outb
+	pushb	49
+	outb
+	pushb	46
+	outb
+	pushb	49
+	outb
+	ret	0,0,0
+
+leerNum:
+
+#line	23
+#func	leerNum
+#ret	void
+
+#line	23
+	pushb	78
+	outb
+	pushb	250
+	outb
+	pushb	109
+	outb
+	pushb	101
+	outb
+	pushb	114
+	outb
+	pushb	111
+	outb
+	pushb	58
+	outb
+	pushb	32
+	outb
+	ret	0,0,0
+
+otraVez:
+
+#line	28
+#func	otraVez
+#ret	void
+
+#line	28
+	pushb	191
+	outb
+	pushb	79
+	outb
+	pushb	116
+	outb
+	pushb	114
+	outb
+	pushb	97
+	outb
+	pushb	32
+	outb
+	pushb	118
+	outb
+	pushb	101
+	outb
+	pushb	122
+	outb
+	pushb	63
+	outb
+	pushb	32
+	outb
+	pushb	40
+	outb
+	pushb	83
+	outb
+	pushb	47
+	outb
+	pushb	78
+	outb
+	pushb	41
+	outb
+	pushb	58
+	outb
+	pushb	32
+	outb
+	ret	0,0,0
+
+despedida:
+
+#line	33
+#func	despedida
+#ret	void
+
+#line	33
+	pushb	161
+	outb
+	pushb	65
+	outb
+	pushb	100
+	outb
+	pushb	105
+	outb
+	pushb	243
+	outb
+	pushb	115
+	outb
+	pushb	33
+	outb
+	ret	0,0,0
+
+crearTabla:
+
+#line	39
+#func	crearTabla
+#param	numero:int	' BP+4
+#local	i:int	' BP-2
+#ret	void
+	enter	2
+	'	inicio from_L0000
+
+#line	44
+	push	bp
+	pushi	-2
+	addi
+	pushi	1
+	store
+FromCond_L0000:
+
+#line	45
+	push	bp
+	pushi	-2
+	addi
+	load
+	pushi	12
+	gti
+	jnz	FromEnd_L0000
+
+#line	46
+	pusha	0
+	push	bp
+	pushi	-2
+	addi
+	load
+	pushi	1
+	subi
+	pushi	4
+	muli
+	addi
+	pushi	0
+	addi
+	push	bp
+	pushi	-2
+	addi
+	load
+	store
+
+#line	47
+	pusha	0
+	push	bp
+	pushi	-2
+	addi
+	load
+	pushi	1
+	subi
+	pushi	4
+	muli
+	addi
+	pushi	2
+	addi
+	push	bp
+	pushi	-2
+	addi
+	load
+	push	bp
+	pushi	4
+	addi
+	load
+	muli
+	store
+
+#line	48
+	push	bp
+	pushi	-2
+	addi
+	push	bp
+	pushi	-2
+	addi
+	load
+	pushi	1
+	addi
+	store
+	jmp	FromCond_L0000
+FromEnd_L0000:
+	ret	0,2,2
+
+imprimirTabla:
+
+#line	53
+#func	imprimirTabla
+#param	numero:int	' BP+4
+#local	i:int	' BP-2
+#ret	void
+	enter	2
+
+#line	57
+	pushb	84
+	outb
+	pushb	97
+	outb
+	pushb	98
+	outb
+	pushb	108
+	outb
+	pushb	97
+	outb
+	pushb	32
+	outb
+	pushb	100
+	outb
+	pushb	101
+	outb
+	pushb	108
+	outb
+	pushb	32
+	outb
+	push	bp
+	pushi	4
+	addi
+	load
+	outi
+	'	inicio from_L0001
+
+#line	59
+	push	bp
+	pushi	-2
+	addi
+	pushi	0
+	store
+FromCond_L0001:
+
+#line	60
+	push	bp
+	pushi	-2
+	addi
+	load
+	pushi	12
+	eqi
+	jnz	FromEnd_L0001
+
+#line	61
+	pusha	0
+	push	bp
+	pushi	-2
+	addi
+	load
+	pushi	4
+	muli
+	addi
+	pushi	0
+	addi
+	load
+	outi
+
+#line	62
+	pushb	32
+	outb
+	pushb	120
+	outb
+	pushb	32
+	outb
+
+#line	63
+	push	bp
+	pushi	4
+	addi
+	load
+	outi
+
+#line	64
+	pushb	32
+	outb
+	pushb	61
+	outb
+	pushb	32
+	outb
+
+#line	65
+	pusha	0
+	push	bp
+	pushi	-2
+	addi
+	load
+	pushi	4
+	muli
+	addi
+	pushi	2
+	addi
+	load
+	outi
+	pushb	10
+	outb
+
+#line	66
+	push	bp
+	pushi	-2
+	addi
+	push	bp
+	pushi	-2
+	addi
+	load
+	pushi	1
+	addi
+	store
+	jmp	FromCond_L0001
+FromEnd_L0001:
+	ret	0,2,2
+
+inicio:
+
+#line	73
+#func	inicio
+#local	a:char	' BP-1
+#local	ai:int	' BP-3
+#local	numero:int	' BP-5
+#ret	void
+	enter	5
+
+#line	76
+	call	presentacion
+	'	inicio from_L0002
+
+#line	78
+	push	bp
+	pushi	-1
+	addi
+	pushb	83
+	storeb
+
+#line	79
+	push	bp
+	pushi	-3
+	addi
+	push	bp
+	pushi	-1
+	addi
+	loadb
+	b2i
+	store
+FromCond_L0002:
+
+#line	80
+	push	bp
+	pushi	-3
+	addi
+	load
+	pushi	78
+	eqi
+	push	bp
+	pushi	-3
+	addi
+	load
+	pushi	110
+	eqi
+	or
+	jnz	FromEnd_L0002
+
+#line	81
+	call	leerNum
+
+#line	82
+	push	bp
+	pushi	-5
+	addi
+	ini
+	store
+
+#line	83
+	push	bp
+	pushi	-5
+	addi
+	load
+	call	crearTabla
+
+#line	84
+	push	bp
+	pushi	-5
+	addi
+	load
+	call	imprimirTabla
+	pushb	10
+	outb
+
+#line	86
+	call	otraVez
+
+#line	87
+	push	bp
+	pushi	-1
+	addi
+	inb
+	storeb
+
+#line	88
+	push	bp
+	pushi	-3
+	addi
+	push	bp
+	pushi	-1
+	addi
+	loadb
+	b2i
+	store
+	jmp	FromCond_L0002
+FromEnd_L0002:
+
+#line	90
+	call	despedida
+	ret	0,5,0
+	'	Fin del programa MAPL

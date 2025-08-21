@@ -1,0 +1,89 @@
+//*
+* Test para probar la Fase de Gestión de Memoria.
+* 
+* COMPROBACION: Las direcciones asignadas a cada nodo deben coincidir con la dirección del comentario de cada definición.
+* 
+* En el siguiente programa, al lado de cada variable (global, local y parámetro) y al lado de cada campo de tupla se ha colocado la dirección que tendrá en ejecución como comentario. 
+* Comprobar que coinciden con las obetenidas.
+* 
+* Salida:
+* 139
+* 6
+*//
+
+class
+	Test_MemoryAllocation;
+	global
+		types
+			deftuple Persona as
+				edad : INTEGER;			/* Dir 0 
+				meses : [12] INTEGER;	/* Dir 2 
+				a : DOUBLE;				/* Dir 26 
+			end
+			deftuple Prueba as
+				campo1 : INTEGER; /* Dir 0 
+				campo2 : INTEGER; /* Dir 2 
+			end
+
+		vars
+			b : DOUBLE;	/* Dir 1 
+			a : CHARACTER;	/* Dir 0
+
+			c : [2] Persona;	/* Dir 5 
+			d : INTEGER;		/* Dir 65 
+
+	create
+		f;
+
+	feature
+		factorial (i : INTEGER) : INTEGER is
+		local
+			fac : INTEGER;
+		do
+			from
+				fac := i;
+			until i = 1 loop /* Tiene que ser para poder reducir i sin llegar a cero
+				i := i - 1;
+				fac := fac * i;
+			end
+			return fac;
+	end
+		
+	/*--> Ojo, los parámetros van en sentido decreciente y comienzan en 4
+	feature f (a: INTEGER, b: DOUBLE, h : CHARACTER) is /* a = BP+9, b = BP+5, h = BP+4  
+		local
+			c : CHARACTER;	/* BP-1 
+			d : INTEGER;	/* BP-3 
+			e : [2]Persona; /* BP-63 
+			f : DOUBLE; 	/* BP-67 
+		do
+			a := to<INTEGER>(h) + to<INTEGER>(b);
+			if a > 0 then
+				a := a + 1;
+			else
+				a := a - 1;
+			end
+			if to<INTEGER>(h) = 72 then
+				a := a + 1;
+			else
+				a := a - 1;
+			end	
+			from
+				d := a;
+			until d < 80 loop
+				a := a + 2;
+				e[1].edad := a;
+				e[1].meses[2] := 5;
+				d := d - 1;
+			end
+			print a;
+			println;
+			a := factorial (3);
+			factorial(3);
+			println a;
+			/* return;
+	end
+end
+
+run f(1, 2.5, 'a');
+

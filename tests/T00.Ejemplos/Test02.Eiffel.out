@@ -1,0 +1,385 @@
+#source "Test02.Eiffel.me"
+
+'Declaraciones globales
+#type tuple1: {
+	a:int
+	c:char
+	d:float
+}
+#type tuple2: {
+	aa:int
+	tt:tuple1
+}
+#global i:int
+#global j:int
+#global ai:2 * int
+#global bi:2 * 2 * int
+#global t:tuple1
+
+call main
+halt
+
+'**
+'** Features
+'**
+
+#line 31
+factorial:
+#func factorial
+#ret int
+#param i:int
+
+#line 33
+enter 2
+#local j:int
+' until-from 0000
+
+#line 36
+push bp
+push -2
+add
+pushi 1
+pushi -1
+muli
+storei
+
+#line 37
+untilcond0000:
+push bp
+push 4
+add
+loadi
+pushi 0
+eqi
+jnz untilend0000
+
+#line 37
+
+#line 38
+push bp
+push -2
+add
+push bp
+push -2
+add
+loadi
+push bp
+push 4
+add
+loadi
+addi
+pushi -1
+muli
+push bp
+push 4
+add
+loadi
+muli
+storei
+
+#line 39
+push bp
+push 4
+add
+push bp
+push 4
+add
+loadi
+pushi 1
+pushi -1
+muli
+subi
+storei
+jmp untilcond0000
+untilend0000:
+
+#line 41
+push bp
+push -2
+add
+loadi
+ret 2, 2, 2
+
+#line 45
+inicio:
+#func inicio
+#ret void
+#param ii:int
+#param ij:int
+#param ik:int
+
+#line 49
+enter 48
+#local i:int
+#local ai:5 * int
+#local t2:4 * tuple2
+
+#line 51
+pusha 16
+pushi 0
+add
+ini
+storei
+
+#line 52
+pusha 16
+pushi 0
+add
+loadi
+pushi 5
+lti
+pusha 16
+pushi 0
+add
+loadi
+pushi 0
+eqi
+not
+and
+jz else0001
+
+#line 53
+pusha 16
+pushi 0
+add
+pusha 16
+pushi 0
+add
+loadi
+pushi 2
+muli
+storei
+jmp finelse0001
+else0001:
+
+#line 55
+pusha 16
+pushi 0
+add
+loadi
+pushi 0
+eqi
+jz else0002
+
+#line 56
+pusha 16
+pushi 0
+add
+pushi 100
+storei
+jmp finelse0002
+else0002:
+
+#line 58
+pusha 16
+pushi 0
+add
+pusha 16
+pushi 0
+add
+loadi
+pushf 10.0
+f2i
+addi
+storei
+
+#line 59
+pusha 16
+pushi 0
+add
+pusha 16
+pushi 0
+add
+loadi
+pushi -1
+muli
+storei
+finelse0002:
+
+#line 61
+push bp
+push -48
+add
+pushi 0
+pushi 9
+muli
+addi
+pushi 2
+add
+pushi 3
+add
+inf
+storef
+
+#line 62
+push bp
+push -48
+add
+pushi 0
+pushi 9
+muli
+addi
+pushi 2
+add
+pushi 0
+add
+pushi 1
+push bp
+push -48
+add
+pushi 0
+pushi 9
+muli
+addi
+pushi 2
+add
+pushi 3
+add
+loadf
+f2i
+addi
+storei
+finelse0001:
+' until-from 0003
+
+#line 65
+push bp
+push -2
+add
+pushi 0
+storei
+
+#line 66
+untilcond0003:
+push bp
+push -2
+add
+loadi
+pushi 5
+eqi
+jnz untilend0003
+
+#line 66
+
+#line 67
+push bp
+push -12
+add
+push bp
+push -2
+add
+loadi
+pushi 2
+muli
+addi
+pusha 16
+pushi 0
+add
+loadi
+push bp
+push -2
+add
+loadi
+muli
+storei
+
+#line 68
+push bp
+push -2
+add
+push bp
+push -2
+add
+loadi
+pushi 4
+call factorial
+addi
+storei
+jmp untilcond0003
+untilend0003:
+
+#line 69
+ret 0, 48, 6
+
+#line 73
+otroInicio:
+#func otroInicio
+#ret int
+
+#line 76
+pusha 0
+ini
+storei
+
+#line 77
+pusha 2
+ini
+storei
+
+#line 78
+pusha 2
+pusha 0
+loadi
+pushi 7
+muli
+storei
+
+#line 79
+pusha 0
+loadi
+pushi 1
+lti
+pusha 2
+loadi
+pushi 7
+gti
+and
+pusha 0
+loadi
+pusha 2
+loadi
+lti
+not
+or
+jz else0004
+
+#line 80
+pusha 0
+pushi 1
+storei
+
+#line 81
+pusha 2
+pushi 2
+storei
+jmp finelse0004
+else0004:
+finelse0004:
+
+#line 83
+pusha 0
+loadi
+pusha 2
+loadi
+subi
+ret 2, 0, 0
+
+'**
+'** Main
+'**
+
+#line 88
+main:
+#func main
+#ret void
+
+#line 88
+pushi 2
+pushi 3
+pushi 4
+pushi 5
+addi
+call inicio
+
+#line 89
+ret 0, 0, 0

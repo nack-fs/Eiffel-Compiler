@@ -1,0 +1,32 @@
+class Test_03_Error;
+	create
+		hacer; 
+		//*Se podrían declarar varios constructores, pero
+		sólo hemos puesto uno*//
+	feature hacer is
+		do
+			print ('H'; /*ERROR, Falta paréntesis
+			print '\n';
+	end /*hacer
+
+	feature hacer1 (i : INTEGER) : is /* ERROR, No se especifica el tipo de retorno
+		do
+			print 'H';
+			print '\n';
+	end /*hacer1
+
+	feature hacer2 (i, j) : DOUBLE is /* ERROR, No se especifican los tipos de los parámetros
+		do
+			print ('H');
+			print '\n';
+	end /*hacer2
+end /* Test_03_Error
+
+run hacer();
+
+/* line 8:13 missing ')' at ';'
+/* line 12:32 mismatched input 'is' expecting {'INTEGER', 'DOUBLE', 'CHARACTER', '[', IDENT}
+/* line 18:18 mismatched input ',' expecting ':'
+/* line 18:21 extraneous input ')' expecting ':'
+/* line 18:32 extraneous input 'is' expecting {',', ')'}
+/* Compilación finalizada debido a errores sintácticos.

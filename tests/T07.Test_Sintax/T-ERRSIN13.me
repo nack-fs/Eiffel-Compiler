@@ -1,0 +1,42 @@
+class T_ERRSIN13;
+	
+	global
+		types
+			deftuple tuple1 as 
+				a: INTEGER;
+				c: CHARACTER;
+				d: DOUBLE;
+			end
+			deftuple vacia as
+			end
+		vars
+			t : tuple1;
+			i : INTEGER; 
+			j : INTEGER;
+
+	create
+		inicio; 
+		otroInicio;
+
+
+	feature factorial (i : INTEGER) : INTEGER is 
+		local
+			j : INTEGER;
+
+		do
+			from
+				j:= -1;
+			until i = 0 loop
+				j := -(j + i) * i;
+				i := i - -1;
+			end
+			return j;
+	end /* factorial
+
+end /*T_ERRSIN13
+
+feature f is /* Error, Feature declarada fuera del sitio
+	do
+end
+
+run inicio(2, 3, 4+5);

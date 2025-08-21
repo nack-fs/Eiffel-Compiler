@@ -1,0 +1,11 @@
+class T_ERRSIN02;
+create
+	f;
+	g	/* falta un ';' detrás de g
+feature f is
+	do
+		return;
+	end
+end
+
+run f();

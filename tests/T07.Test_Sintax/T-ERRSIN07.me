@@ -1,0 +1,18 @@
+class T_ERRSIN07;
+	global
+		vars
+			i : INTEGER;
+	
+	create
+		hacer, deshacer;	/* Error, separador coma.
+		//*Se podrían declarar varios constructores, pero
+		sólo hemos puesto uno*//
+		
+	feature Hacer is
+        do
+            print 'H';
+			print '\n';
+    end /*hacer
+end /* T_ERRSIN07
+
+run hacer();

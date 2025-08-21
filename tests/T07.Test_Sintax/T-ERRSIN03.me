@@ -1,0 +1,17 @@
+class T_ERRSIN03;
+	
+	global
+		; /* Sobre al ';'
+	create
+		f;
+
+	feature f is
+		local
+			; /* Sobre al ';'
+		do
+			; /* Sobre al ';'. Éste puede provocar erroes de rebote.
+			return;
+	end
+end
+
+run f();

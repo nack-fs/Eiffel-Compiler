@@ -1,0 +1,72 @@
+class T_ERRSIN11;
+	
+	global
+		types
+			deftuple tuple1 as /*estructura
+				a: INTEGER;
+				c: CHARACTER;
+				d: DOUBLE;
+				bi : [2][2] INTEGER; 
+			end
+			deftuple tuple2 as /*estructura
+				aa: INTEGER;
+				tt: tuple1;
+				at: [4][5] tuple1;
+			end
+		vars
+			i : INTEGER; 
+			j : INTEGER;
+			ai : [2] INTEGER; 
+			bi : [2][2] INTEGER; 
+			t : tuple1; /*estructura
+
+	create
+		inicio; 
+		otroInicio; /*Se podrían definir tantos constructores como se desee
+	
+	feature inicio (ii : INTEGER, ij : INTEGER, ik : INTEGER) is
+		local
+			i : INTEGER;
+			ai : [5] INTEGER;
+			t2 : [4] tuple2; /*array de estructura	
+		do
+			read(t.a);
+			if (t.a < 5) and not (t.a = 0) then
+				t.a := t.a * 2;
+			else if t.a = 0 then
+				t.a := 100;
+				else
+					t.a := t.a + to<INTEGER>(10.0);
+					t.a := -t.a;
+				end
+			read t2[0].tt.[d]; /* Error, el campo 'd' se accede con el operador '.' sin '['
+			t2[0].tt.a := 1 + to<INTEGER>(t2[0].tt.z); 
+			t2[0].at[3, 2].bi[1][0] := 1 + to<tuple1>(t2[0].tt.d); /* Error, acceso a array usando comas
+			end
+			
+			from
+				i:= 0;
+			until m = 5; loop /* Error, sobra ';'
+				ai[i] := t.a * i;
+				i := i + 1;
+			end
+	end /* inicio
+	
+	feature otroInicio : INTEGER is
+		local
+		/* local está vacío
+		do
+			read (i);
+			read j;
+			j := i * 7;
+			if (i < 1 and j > 7) or not (i < +j) then /* Error no existe el más unario
+				i := 1;
+				j := 2;
+			end
+			return i - j;
+	end /*otroInicio
+	
+end /*T_ERRSIN11
+
+run inicio(2, 3, 4+5); /* como solo puede estar activo un inicio sólo llamaría a éste
+	/* EJEMPLO.otroInicio(6); /* inicio alternativo: habría que comentar la linea anterior y descomentar esta

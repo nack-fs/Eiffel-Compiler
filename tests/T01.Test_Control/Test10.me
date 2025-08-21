@@ -1,0 +1,24 @@
+class Test_10_Error;
+   
+	global
+		/* vars
+			i : INTEGER;	/* ERROR, no se permiten declaraciones de variables sin cláusula vars
+	
+	create
+		hacer;	
+	
+	feature hacer (i, j, k : INTEGER) is /* ERROR, no se permiten listas de parámetros en las declaraciones
+        do
+            print 'H';
+			print '\n';
+	end /*hacer
+	
+end /* Test_010_Error
+
+run hacer();
+
+/* line 5:3 missing 'create' at 'i'
+/* line 5:5 mismatched input ':' expecting {'types', 'vars', 'create'}
+/* line 10:17 mismatched input ',' expecting ':'
+/* line 10:20 mismatched input ',' expecting ':'
+/* Compilación finalizada debido a errores sintácticos.

@@ -1,0 +1,41 @@
+//*
+Este ejemplo tiene varios errores sem�nticos que el compilador debe detectar en la
+fase de identificaci�n y otros que no deben ser detectados a�n.
+*//
+
+class
+	T_ERRIDE02; /* estructuras_error;
+
+	global
+		types
+			deftuple Persona as
+				edad : INTEGER;
+				meses :[12] INTEGER;
+				edad : DOUBLE;  /* Campo repetido 
+			end
+
+			deftuple Persona as	/* Estructura repetida 
+				j : INTEGER;
+			end
+
+			deftuple Punto as
+				x : INTEGER;
+			end
+		vars
+			k : [10] Window;	/* Estructura Window no definida
+			
+			centro : Punto;
+
+	create
+		arranque;
+		
+	feature
+		arranque is
+		do
+			print centro.x;
+			print centro.y; /* No error en esta fase aunque aunque el campo no est� en la struct 
+		end
+end /* T_ERRIDE02
+
+run arranque();
+

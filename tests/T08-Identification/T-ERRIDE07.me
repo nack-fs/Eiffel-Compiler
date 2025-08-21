@@ -1,0 +1,72 @@
+
+class
+    T_ERRIDE12;
+	
+	global
+		vars
+			i : INTEGER;
+			i : INTEGER;	/* Error, declaración repetida
+	create
+		inicio; 
+		otroInicio; /*Se podrían definir tantos constructores como se desee
+		inicioNoDefinido; /* Error, Inicio no definido en ninguna feature
+		
+	feature
+		factorial (i : INTEGER) : INTEGER is
+		local
+			j : INTEGER;
+		do
+			from
+				j:= -1;
+			until i = 0 loop
+				j := -(j + i) * i;
+				i := i - -1;  /* Vale así o hay que poner  i - (-1)?;
+			end
+			return j;
+		end /* factorial
+		
+	feature
+		inicio (ii : INTEGER, ij : INTEGER, ik : INTEGER) is
+		local
+			i : INTEGER;
+			ai : [5] INTEGER;
+		do
+			read(a[2]);
+			i := 0;
+			if (a[i] < 5) and not (i = 0) then
+				i := i * 2;
+			else if t.a = 0 then
+				ai[i] := 10;
+				else
+					i := i + to<INTEGER>(10.0);
+					ai[i] := -ai[0];
+				end
+			read i; 
+			end
+			
+			from
+				i:= 0;
+			until i = 5 loop
+				ai[i] := 3 * i;
+				i := i + factorial(4);
+			end
+		end /* inicio
+		
+	feature otroInicio : INTEGER is
+		local
+			j : INTEGER;
+		do
+			read (i);
+			read j;
+			j := i * 7;
+			if (i < 1 and j > 7) or not (i < j) then
+				i := 1;
+				j := 2;
+			end
+			return i - j;
+		end /*otroInicio
+	
+end /*T_ERRIDE12
+
+run inicio(2, 3, 4+5); /* Error, inicio no se ha declarado como constructor
+	/* EJEMPLO.otroInicio(6); /* inicio alternativo: habría que comentar la linea anterior y descomentar esta

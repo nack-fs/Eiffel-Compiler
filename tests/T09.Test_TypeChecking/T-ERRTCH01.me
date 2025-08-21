@@ -1,0 +1,62 @@
+//*
+Test para probar la Fase de Comprobación de Tipos
+
+COMPROBACION: El compilador del alumno debe detectar todos los errores indicados en los comentarios.
+
+ADVERTENCIA: Hay algunos errores que producen otros errores derivados.
+
+Por ejemplo:
+
+	print juan + anton;	// suma de dos estructuras 
+
+Lo anterior produce el error de que se están sumando dos expresiones de tipos no simples y además
+puede producir el error de que la expresión a imprimir tampoco es de tipo simple (al no quedar
+un tipo simple asociado a la suma al no haberse podido calcular su tipo).
+Estos errores derivados son normales y no es necesario intentar suprimirlos. 
+
+NOTA: Es posible que el alumno deba adaptar ligeramente la sintaxis del lenguaje si no coincide
+con la del lenguaje que le corresponde.
+*//
+
+class T_ERRTCH01;
+
+	global
+		types
+			deftuple Persona as
+				edad : INTEGER;
+				meses : [12] INTEGER;
+			end
+		vars
+			juan : Persona;
+			anton : Persona;
+
+	create
+		main;
+
+	feature j (a : INTEGER, b : DOUBLE) : DOUBLE is
+		do
+			return 3.7; 
+		end
+
+	feature main is
+		local
+		i : INTEGER;
+		f : DOUBLE;
+		v : [10]INTEGER;
+
+		do
+			v [3] := i and not f; /* ERROR no se pueden aplicar operadores lógicos a los DOUBLE
+			i := j (1, 3.5); /* ERROR no se puede asignat un DOUBLE a un INTEGER
+			juan := anton; /* ERROR no se pueden asignar tuplas
+			j (1, 3.5) := 3.8; /* ERROR no se puede asignar un valor a una función
+		end
+end /* T_ERRTCH01
+
+run main();
+
+//* ERRORES
+Error en Type Checking: [48:23] El operador 'not' sólo puede aplicarse a expresiones de tipo INTEGER, no de tipo 'DOUBLE'.
+Error en Type Checking: [49:4] Los tipos de la izquierda y derecha deben ser iguales. No es posible asignar un 'DOUBLE' a un 'INTEGER'.
+Error en Type Checking: [50:4] No se puede asignar a un tipo 'Tupla: Persona'. Sólo es posible asignar a tipos simples {INTEGER, CHARACTER y DOUBLE}.
+Error en Type Checking: [51:4] El lado izquierdo de la asignación tiene una expresión no modificable (no es un lvalue).
+*//
