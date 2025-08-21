@@ -16,3 +16,6 @@ This compiler was built using a powerful combination of modern and robust tools:
 - **Vgen:** A utility used to generate the skeleton classes for the Abstract Syntax Tree (AST). By processing a formal abstract grammar, Vgen provided the essential data structures for the semantic analysis phase.
 
 - **Java:** The core logic of the compiler, including the visitor pattern for AST traversal, symbol table management, type checking, and code generation, is implemented entirely in Java.
+
+
+📚 See docs for further details.
