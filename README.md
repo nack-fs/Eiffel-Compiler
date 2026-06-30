@@ -2,6 +2,7 @@
 This repository hosts a full-featured compiler for the classic Eiffel 1985 programming language. Developed entirely from scratch, this project serves as both a functional tool and an educational resource, demonstrating the fundamental principles of compiler design. It offers a unique opportunity to explore the inner workings of a language widely. The code generation is made for our abstract machine  at Uniovi called MAPL.
 
 <h2>Key Features</h2>
+
 - The project covers all core phases of compilation: lexical analysis, parsing, semantic analysis, and intermediate code generation.
 
 - Built with a focus on a deep understanding of compiler theory, without relying on pre-existing compiler frameworks, apart from the grammar tools.
