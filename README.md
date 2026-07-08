@@ -1,22 +1,5 @@
 <h1>Eiffel Compiler</h1>
-This repository hosts a full-featured compiler for the classic Eiffel 1985 programming language. Developed entirely from scratch, this project serves as both a functional tool and an educational resource, demonstrating the fundamental principles of compiler design. It offers a unique opportunity to explore the inner workings of a language widely. The code generation is made for our abstract machine  at Uniovi called MAPL.
+This repository is a compiler for the classic Eiffel 1985 programming language made form scratch in the Programming Language Design subject. The purpose of this project was to learn fundamental principles of compiler design. The code generation is made for our abstract machine at Uniovi called MAPL.
 
-<h2>Key Features</h2>
-
-- The project covers all core phases of compilation: lexical analysis, parsing, semantic analysis, and intermediate code generation.
-
-- Built with a focus on a deep understanding of compiler theory, without relying on pre-existing compiler frameworks, apart from the grammar tools.
-
-- The modular and well-documented codebase makes it an ideal reference for students and developers interested in compiler construction.
-
-<h2>Technology Stack</h2>
-This compiler was built using a powerful combination of modern and robust tools:
-
-- **ANTLR:** A renowned parser generator used to define the formal language grammar (Grammar.g4). ANTLR automates the creation of the lexer and parser, ensuring accurate tokenization and syntax checking.
-
-- **VGen:** A utility used to generate the skeleton classes for the Abstract Syntax Tree (AST). By processing a formal abstract grammar, Vgen provided the essential data structures for the semantic analysis phase.
-
-- **Java:** The core logic of the compiler, including the visitor pattern for AST traversal, symbol table management, type checking, and code generation, is implemented entirely in Java.
-
-
+---
 *See docs for further details.*
